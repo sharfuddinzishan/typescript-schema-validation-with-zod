@@ -20,7 +20,7 @@ app.get('/', logger, (req: Request, res: Response) => {
 app.all('**', (req: Request, res: Response) => {
   res.status(400).json({
     message: 'Unauthorized Action',
-    success: false,
+    success: false
   })
 })
 

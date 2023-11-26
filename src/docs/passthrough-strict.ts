@@ -11,12 +11,12 @@ const getInfo = z
   .object({
     name: z.string(),
     age: z.number(),
-    salary: z.number().optional(),
+    salary: z.number().optional()
   })
   .parse({
     name: 'Zishan',
     age: 23,
-    dept: 'CSE',
+    dept: 'CSE'
   })
 
 console.log(getInfo) // { name: 'Zishan', age: 23 }
@@ -26,13 +26,13 @@ const getInfoPass = z
   .object({
     name: z.string(),
     age: z.number(),
-    salary: z.number().optional(),
+    salary: z.number().optional()
   })
   .passthrough()
   .parse({
     name: 'Zishan',
     age: 23,
-    dept: 'CSE',
+    dept: 'CSE'
   })
 
 console.log(getInfoPass) // { name: 'Zishan', age: 23, dept: 'CSE' }
@@ -43,13 +43,13 @@ const getInfoStrict = z
   .object({
     name: z.string(),
     age: z.number(),
-    salary: z.number().optional(),
+    salary: z.number().optional()
   })
   .strict()
   .parse({
     name: 'Zishan',
     age: 23,
-    dept: 'CSE',
+    dept: 'CSE'
   })
 
 console.log(getInfoStrict) // Unrecognized key(s) in object: 'dept'
