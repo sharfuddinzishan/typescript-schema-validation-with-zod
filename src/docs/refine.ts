@@ -11,7 +11,8 @@ const userSchema = z
     role: z
       .string()
       .refine(
-        (data) => roles.find((val) => val.toLowerCase() === data.toLowerCase()),
+        async (data) =>
+          roles.find((val) => val.toLowerCase() === data.toLowerCase()),
         {
           message: `Roles Should Be Between ${roles}`,
         },
