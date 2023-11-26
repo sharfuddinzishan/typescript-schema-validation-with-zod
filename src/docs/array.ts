@@ -12,17 +12,17 @@ const items = z.string().array() // const items = z.array(z.string());
 const orderSchema = z.object({
   item: z.string(),
   qty: z.number().positive().min(1).max(12),
-  price: z.number().positive().min(1).max(999999),
+  price: z.number().positive().min(1).max(999999)
 })
 const ordersSchema = z.object({
   orderId: z.number(),
-  orders: z.array(orderSchema).nonempty({ message: 'Must Have 1 Order' }),
+  orders: z.array(orderSchema).nonempty({ message: 'Must Have 1 Order' })
 })
 
 const userSchema = z.object({
   email: z.string().email(),
   favourite: z.string().array().nonempty().min(1),
-  allOrders: z.array(ordersSchema),
+  allOrders: z.array(ordersSchema)
 })
 
 const order1 = {
@@ -35,14 +35,14 @@ const order1 = {
         {
           item: 'Lenovo Flex 5',
           qty: 1,
-          price: 95000,
+          price: 95000
         },
         {
           item: 'Keyboard Lenovo',
           qty: 1,
-          price: 1500,
-        },
-      ],
+          price: 1500
+        }
+      ]
     },
     {
       orderId: 2,
@@ -50,16 +50,16 @@ const order1 = {
         {
           item: 'Earphone',
           qty: 1,
-          price: 1000,
+          price: 1000
         },
         {
           item: 'Mouse',
           qty: 1,
-          price: 3500,
-        },
-      ],
-    },
-  ],
+          price: 3500
+        }
+      ]
+    }
+  ]
 }
 
 try {
@@ -73,7 +73,7 @@ try {
 
     const getTotal = getOrdersById.reduce(
       (prev, item) => prev + item.price * item.qty,
-      0,
+      0
     )
     console.log(getTotal)
   } else {

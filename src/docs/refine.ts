@@ -14,16 +14,16 @@ const userSchema = z
         async (data) =>
           roles.find((val) => val.toLowerCase() === data.toLowerCase()),
         {
-          message: `Roles Should Be Between ${roles}`,
-        },
+          message: `Roles Should Be Between ${roles}`
+        }
       ),
     salary: z.number().refine((data) => data > 0, {
-      message: 'Salary Should Not Zero or Less',
-    }),
+      message: 'Salary Should Not Zero or Less'
+    })
   })
   .refine((obj) => obj.password === obj.confirmPassword, {
     message: 'Password Mismatch',
-    path: ['confirmPassword'],
+    path: ['confirmPassword']
   })
 
 const user1 = {
@@ -33,7 +33,7 @@ const user1 = {
   confirmPassword: 123,
   age: 0,
   role: 'publisher',
-  salary: -10,
+  salary: -10
 }
 
 try {

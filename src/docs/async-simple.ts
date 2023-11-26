@@ -4,7 +4,7 @@ import { z } from 'zod'
 const orderSchema = z.object({
   item: z.string(),
   qty: z.number().positive().min(1).max(12),
-  price: z.number().positive().min(1).max(9999),
+  price: z.number().positive().min(1).max(9999)
 })
 
 const order = { item: 'Laptop', qty: 2, price: 800 }
@@ -34,11 +34,11 @@ verifyOrder(order)
 
 const orders = [
   { item: 'Laptop', qty: 2, price: 800 },
-  { item: 'Mouse', qty: 1, price: 25 },
+  { item: 'Mouse', qty: 1, price: 25 }
 ]
 
 const verifyMultipleOrder = async (
-  getOrders: z.infer<typeof orderSchema>[],
+  getOrders: z.infer<typeof orderSchema>[]
 ) => {
   const allOders = await Promise.all(
     getOrders.map(async (singleOrder) => {
@@ -48,7 +48,7 @@ const verifyMultipleOrder = async (
       } else {
         throw new Error('Validation Error')
       }
-    }),
+    })
   )
   return allOders
 }

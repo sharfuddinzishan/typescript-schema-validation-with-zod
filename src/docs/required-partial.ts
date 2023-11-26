@@ -14,7 +14,7 @@ const infoSchema = z
     salary: z.number(),
     role: z.enum(['User', 'Admin', 'Editor']),
     password: z.string(),
-    confirmPassword: z.string(),
+    confirmPassword: z.string()
   })
   .partial()
 
@@ -23,5 +23,5 @@ const authSchema = infoSchema.required({
   name: true,
   email: true,
   password: true,
-  confirmPassword: true,
+  confirmPassword: true
 })

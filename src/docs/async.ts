@@ -3,12 +3,12 @@ import { z } from 'zod'
 const orderSchema = z.object({
   item: z.string(),
   qty: z.number().positive().min(1).max(12),
-  price: z.number().positive().min(1).max(9999),
+  price: z.number().positive().min(1).max(9999)
 })
 
 const orders = [
   { item: 'Laptop', qty: 2, price: 800 },
-  { item: 'Mouse', qty: 1, price: 25 },
+  { item: 'Mouse', qty: 1, price: 25 }
 ]
 
 calculateTotal(orders).then((result) => console.log(result))
@@ -24,7 +24,7 @@ async function calculateTotal(orders: z.infer<typeof orderSchema>[]) {
           } else {
             throw 'Validation Error'
           }
-        }),
+        })
       )
 
     const totalPrice = await calculatePrice(validatedOrders)
@@ -34,7 +34,7 @@ async function calculateTotal(orders: z.infer<typeof orderSchema>[]) {
     if (error instanceof z.ZodError) {
       return {
         success: false,
-        error: error.errors[0]?.message ?? 'Validation error',
+        error: error.errors[0]?.message ?? 'Validation error'
       }
     } else {
       // Handle other types of errors

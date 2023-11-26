@@ -11,7 +11,7 @@ const userSchema = z.object({
   password: z.string(),
   confirmPassword: z.string(),
   age: z.number(),
-  salary: z.number(),
+  salary: z.number()
 })
 
 type TUserType = z.infer<typeof userSchema>
@@ -20,7 +20,7 @@ let user: TUserType = {
   name: 'Sharfuddin',
   email: 'abc@gmail.com',
   password: '1234',
-  confirmPassword: '1234',
+  confirmPassword: '1234'
 }
 
 console.log(user)
