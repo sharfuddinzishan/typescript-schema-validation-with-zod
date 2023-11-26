@@ -5,7 +5,9 @@ import config from './app/config'
 async function main() {
   try {
     await mongoose.connect(config.db as string)
-    app.listen(config.port, () => {})
+    app.listen(config.port, () => {
+      console.log('Listened Port')
+    })
   } catch (err) {
     new Error('Port or Database Connection Error')
   }
