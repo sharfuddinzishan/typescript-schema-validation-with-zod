@@ -2,6 +2,7 @@ import { union, z } from 'zod'
 
 /*
 built-in z.union method for composing "OR" types.
+OR means any of one type must be given
 */
 const strNumBool = z.string().or(z.number()).or(z.boolean())
 const NumBool = union([z.number(), z.boolean()])
