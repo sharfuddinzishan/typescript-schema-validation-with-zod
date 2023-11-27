@@ -11,10 +11,22 @@ const userSchema = z.object({
   password: z.string(),
   confirmPassword: z.string(),
   age: z.number(),
-  salary: z.number()
+  salary: z.number().optional()
 })
 
 type TUserType = z.infer<typeof userSchema>
+
+type Tadmin = z.infer<typeof userSchema>
+/*
+
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    age: number;
+    salary?: number | undefined;
+}
+*/
 
 let user: TUserType = {
   name: 'Sharfuddin',
